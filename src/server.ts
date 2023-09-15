@@ -1,10 +1,11 @@
 import { fastify } from 'fastify';
+import { prisma } from './lib/prisma';
+import { getAllPromptsRoute } from './routes/get-all-prompts';
 
 const app = fastify()
 
-app.get('/', () => {
-    return 'Hello world'
-})
+app.register(getAllPromptsRoute)
+
 
 app.listen({
     port: 3333,
